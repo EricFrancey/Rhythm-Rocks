@@ -5,10 +5,13 @@ Sound design in [FL Studio](https://www.image-line.com/)
 ```md
 Features:
 
-- Kick drum
-- Snare drum
+- Auto Kick drum
+- Auto Snare drum
 ```
 
+To be implemented:
+
+- Drum sequencer
 
 ## Live Demo
 [Rhythm Finder](https://ericfrancey.github.io/Rhythm-Finder/)
