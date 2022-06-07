@@ -1,25 +1,12 @@
-// var kick = new Audio('./sounds/RF_kick.mp3');
 var kick = document.getElementById('kick-drum');
 var snare = new Audio('./sounds/RF_snare.mp3');
 let dSpeedText = 1;
-
 var drumSpeed = 500;
 
-// function pauseKick() {
-//   document.getElementById('stopButton').addEventListener('click', () => {
-//     document.querySelectorAll('audio').forEach(el => el.pause());
-//   });
-// }
-
-// document.getElementById('stopButton').addEventListener('click', () => {
-// document.getElementById('newKick').forEach(el => el.pause());
-// });
-
-
 document.onkeydown = checkKey;
+
 function checkKey(e) {
-  
-    
+   
   e = e || window.event;
     
   if (e.key == 'ArrowUp') {
@@ -34,34 +21,45 @@ function checkKey(e) {
 }
 
 function cloneKick() {
+
   let newKick = kick.cloneNode();
-  // newKick.id = "newKick"
   newKick.play();
 }
 
 function cloneSnare() {
+
   let newSnare = snare.cloneNode();
   newSnare.play();
 }
 
 function playKick() {
+
   checkKey();
-  setInterval(cloneKick, drumSpeed);
+  let myint = setInterval(cloneKick, drumSpeed);
+  var stopButton = document.getElementById('stop-button')
+  stopButton.addEventListener('click', clearKick)
+
+  function clearKick(){
+
+    clearInterval(myint);
+  }
 }
 
-function setSnare() {
-  snare.play();
-}
-  
 function playSnare() {
+
   checkKey();
-  setInterval(cloneSnare, drumSpeed);
+  let myint = setInterval(cloneSnare, drumSpeed);
+  var stopButton = document.getElementById('stop-button')
+  stopButton.addEventListener('click', clearSnare)
+
+  function clearSnare(){
+
+    clearInterval(myint);
+  }
+
 }
 
-function stopAll() {
-  location.reload();
-// kick.pause();
-}
+
 
 function createKickButtons() {
 
@@ -83,33 +81,28 @@ function createSnareButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  // snareCol.classList.add('instrument-headings')
   snareCol.innerHTML = '<p>Snare</p>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
     newBtn[i].id = 'newBtn'
+    newBtn[i].classList.add('button-off')
     newBtn[i].innerHTML = i+1;
     document.body.appendChild(newBtn[i]);
+
+    newBtn[i].addEventListener('click', newColor)
+
+    function newColor() {
+      if (newBtn[i].classList.contains('button-off')) {
+        newBtn[i].classList.remove('button-off')
+        newBtn[i].classList.add('button-on')
+      } else if (newBtn[i].classList.contains('button-on')){
+        newBtn[i].classList.add('button-off')
+        newBtn[i].classList.remove('button-on')
+      }
+    }
   }
 }
-
-
-// function createSnareButtons() {
-
-//   let newBtn = [];
-//   let snareCol = document.createElement('div');
-//   snareCol.classList.add('col')
-//   // snareCol.classList.add('instrument-headings')
-//   snareCol.innerHTML = '<pSnare</p>'
-//   document.body.appendChild(snareCol);
-//   for (let i = 0; i < 16; i++) {
-//     newBtn[i] = document.createElement('button');
-//     newBtn[i].id = 'newBtn';
-//     newBtn[i].innerHTML = i+1;
-//     document.body.appendChild(newBtn[i]);
-//   }
-// }
 
 function createOpenhatButtons() {
 
@@ -122,8 +115,6 @@ function createOpenhatButtons() {
     newBtn[i] = document.createElement('button');
     newBtn[i].id = 'newBtn';
     newBtn[i].innerHTML = i+1;
-        // newBtn[i].classList.add('btn-lg');
-        // newBtn[i].classList.add('btn-danger');
     document.body.appendChild(newBtn[i]);
   }
 }
@@ -139,13 +130,12 @@ function createHihatButtons() {
     newBtn[i] = document.createElement('button');
     newBtn[i].id = 'newBtn';
     newBtn[i].innerHTML = i+1;
-          // newBtn[i].classList.add('btn-lg');
-          // newBtn[i].classList.add('btn-danger');
     document.body.appendChild(newBtn[i]);
   }
 }
      
 function init() {
+
   createKickButtons();
   createSnareButtons();
   createHihatButtons();
