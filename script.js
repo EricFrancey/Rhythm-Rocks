@@ -5,6 +5,7 @@ var drumSpeed = 500;
 
 document.onkeydown = checkKey;
 
+
 function checkKey(e) {
    
   e = e || window.event;
@@ -56,10 +57,7 @@ function playSnare() {
 
     clearInterval(myint);
   }
-
 }
-
-
 
 function createKickButtons() {
 
@@ -71,8 +69,24 @@ function createKickButtons() {
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
     newBtn[i].id = 'newBtn'
+    newBtn[i].classList.add('button-off')
     newBtn[i].innerHTML = i+1;
     document.body.appendChild(newBtn[i]);
+
+    newBtn[i].addEventListener('click', newColor)
+
+    function newColor() {
+      
+      if (newBtn[i].classList.contains('button-off')) {
+        newBtn[i].classList.remove('button-off')
+        newBtn[i].classList.add('button-on')
+      } else if (newBtn[i].classList.contains('button-on')){
+        newBtn[i].classList.add('button-off')
+        newBtn[i].classList.remove('button-on')
+      }
+    }
+
+
   }
 }
 
@@ -93,6 +107,7 @@ function createSnareButtons() {
     newBtn[i].addEventListener('click', newColor)
 
     function newColor() {
+
       if (newBtn[i].classList.contains('button-off')) {
         newBtn[i].classList.remove('button-off')
         newBtn[i].classList.add('button-on')
@@ -114,8 +129,22 @@ function createOpenhatButtons() {
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
     newBtn[i].id = 'newBtn';
+    newBtn[i].classList.add('button-off')
     newBtn[i].innerHTML = i+1;
     document.body.appendChild(newBtn[i]);
+
+    newBtn[i].addEventListener('click', newColor)
+
+    function newColor() {
+
+      if (newBtn[i].classList.contains('button-off')) {
+        newBtn[i].classList.remove('button-off')
+        newBtn[i].classList.add('button-on')
+      } else if (newBtn[i].classList.contains('button-on')){
+        newBtn[i].classList.add('button-off')
+        newBtn[i].classList.remove('button-on')
+      }
+    }
   }
 }
   
@@ -129,8 +158,22 @@ function createHihatButtons() {
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
     newBtn[i].id = 'newBtn';
+    newBtn[i].classList.add('button-off')
     newBtn[i].innerHTML = i+1;
     document.body.appendChild(newBtn[i]);
+
+    newBtn[i].addEventListener('click', newColor)
+
+    function newColor() {
+
+      if (newBtn[i].classList.contains('button-off')) {
+        newBtn[i].classList.remove('button-off')
+        newBtn[i].classList.add('button-on')
+      } else if (newBtn[i].classList.contains('button-on')){
+        newBtn[i].classList.add('button-off')
+        newBtn[i].classList.remove('button-on')
+      }
+    }
   }
 }
      
