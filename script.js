@@ -69,7 +69,7 @@ function createKickButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p><br>Kick</p>'
+  snareCol.innerHTML = '<h3><br>Kick</h3>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
@@ -90,8 +90,6 @@ function createKickButtons() {
         newBtn[i].classList.remove('button-on')
       }
     }
-
-
   }
 }
 
@@ -100,7 +98,7 @@ function createSnareButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p><br>Snare</p>'
+  snareCol.innerHTML = '<h3><br>Snare</h3>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
@@ -129,7 +127,7 @@ function createOpenhatButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p><br>Openhat</p>'
+  snareCol.innerHTML = '<h3><br>Openhat</h3>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
@@ -158,7 +156,7 @@ function createHihatButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p><br>Hihat</p>'
+  snareCol.innerHTML = '<h3><br>Hihat</h3>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
