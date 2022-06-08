@@ -1,17 +1,37 @@
 .instrument-headings{
 
 color: red;
-
 }
 
 .button-off {
 
-background-color: red;
-
+background-color: whitesmoke;
 }
 
 .button-on {
 
-    background-color: green;
-    
+background-color: darkred; 
 }
+
+body {
+
+background-color: dimgray;
+/* margin: 50%; */
+border: solid blue;
+margin-left: 30%;
+margin-right: 30%;
+margin-top: 3%
+}
+
+
+.desc {
+
+    color: whitesmoke;
+}
+
+
+/* p {
+
+color: whitesmoke;
+
+} */

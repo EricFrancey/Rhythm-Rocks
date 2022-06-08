@@ -1,8 +1,8 @@
 var kick = document.getElementById('kick-drum');
 var snare = new Audio('./sounds/RF_snare.mp3');
 let dSpeedText = 1;
-var drumSpeed = 500;
-
+//83 bpm
+var drumSpeed = 723;
 document.onkeydown = checkKey;
 
 
@@ -31,6 +31,11 @@ function cloneSnare() {
 
   let newSnare = snare.cloneNode();
   newSnare.play();
+}
+
+function playAuto() {
+// will be used to play both kick and snare
+
 }
 
 function playKick() {
@@ -64,7 +69,7 @@ function createKickButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p>Kick</p>'
+  snareCol.innerHTML = '<p><br>Kick</p>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
@@ -95,7 +100,7 @@ function createSnareButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p>Snare</p>'
+  snareCol.innerHTML = '<p><br>Snare</p>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
@@ -124,7 +129,7 @@ function createOpenhatButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p>Openhat</p>'
+  snareCol.innerHTML = '<p><br>Openhat</p>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');
@@ -153,7 +158,7 @@ function createHihatButtons() {
   let newBtn = [];
   let snareCol = document.createElement('div');
   snareCol.classList.add('col')
-  snareCol.innerHTML = '<p>Hihat</p>'
+  snareCol.innerHTML = '<p><br>Hihat</p>'
   document.body.appendChild(snareCol);
   for (let i = 0; i < 16; i++) {
     newBtn[i] = document.createElement('button');

@@ -1,12 +1,13 @@
 # Rhythm-Finder
 
-UI built with Javascript and [Bootstrap](https://getbootstrap.com/)\
+UI built with CSS, Javascript, [Bootstrap](https://getbootstrap.com/)\
 Sound design in [FL Studio](https://www.image-line.com/)
 ```md
-Features:
+How to use: 
 
-- Auto Kick drum
-- Auto Snare drum
+Choose speed, then hit "Kick" button.
+
+Sequencer buttons currently toggle colour only
 ```
 
 To be implemented:
