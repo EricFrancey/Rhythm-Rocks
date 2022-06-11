@@ -10,6 +10,14 @@ for (let i = 0; i < 16; i++) {
   kickSeq[i] = false;
 }
 
+function startSequencer() {
+
+for (let i = 0; i < kickSeq.length; i ++) {
+  setTimeout(cloneKick, drumSpeed);
+  drumSpeed = drumSpeed + 1000;
+  }
+}
+
 // dropdown
 function dropDownBtn() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -58,20 +66,24 @@ function cloneSnare() {
 
 function playAuto() {
 // will be used to play both kick and snare
-
 }
+
+// function playKick() {
+
+//   checkKey();
+//   let myint = setInterval(cloneKick, drumSpeed);
+//   var stopButton = document.getElementById('stop-button')
+//   stopButton.addEventListener('click', clearKick)
+
+//   function clearKick(){
+
+//     clearInterval(myint);
+//   }
+// }
 
 function playKick() {
 
-  checkKey();
   let myint = setInterval(cloneKick, drumSpeed);
-  var stopButton = document.getElementById('stop-button')
-  stopButton.addEventListener('click', clearKick)
-
-  function clearKick(){
-
-    clearInterval(myint);
-  }
 }
 
 function playSnare() {
@@ -119,9 +131,11 @@ function createKickButtons() {
         if (newBtn[i].classList.contains('button-off')) {
           newBtn[i].classList.remove('button-off')
           newBtn[i].classList.add('button-on')
+          kickSeq = true;
         } else if (newBtn[i].classList.contains('button-on')){
           newBtn[i].classList.add('button-off')
           newBtn[i].classList.remove('button-on')
+          kickSeq = false;
         }
       }
     }
