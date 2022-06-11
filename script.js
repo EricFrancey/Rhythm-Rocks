@@ -5,16 +5,18 @@ let dSpeedText = 1;
 var drumSpeed = 723;
 document.onkeydown = checkKey;
 
-var kickSeq = [];
+let kickSeq = [];
 for (let i = 0; i < 16; i++) {
   kickSeq[i] = false;
 }
 
 function startSequencer() {
 
-for (let i = 0; i < kickSeq.length; i ++) {
-  setTimeout(cloneKick, drumSpeed);
-  drumSpeed = drumSpeed + 1000;
+  for (let i = 0; i < kickSeq.length; i ++) {
+    if (kickSeq[i] == false) {
+      setTimeout(cloneKick, drumSpeed);
+      drumSpeed = drumSpeed + 1000;
+    }
   }
 }
 
@@ -115,7 +117,6 @@ function createKickButtons() {
       snareCol.innerHTML = '<h3><br>Openhat</h3>'
     }
   
-
     document.body.appendChild(snareCol);
     for (let i = 0; i < 16; i++) {
       newBtn[i] = document.createElement('button');
@@ -123,7 +124,6 @@ function createKickButtons() {
       newBtn[i].classList.add('button-off')
       newBtn[i].innerHTML = i+1;
       document.body.appendChild(newBtn[i]);
-
       newBtn[i].addEventListener('click', newColor)
 
       function newColor() {
@@ -140,6 +140,7 @@ function createKickButtons() {
       }
     }
   }
+  startSequencer();
 }
  
 function init() {
