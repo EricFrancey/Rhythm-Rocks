@@ -5,6 +5,30 @@ let dSpeedText = 1;
 var drumSpeed = 723;
 document.onkeydown = checkKey;
 
+var kickSeq = [];
+for (let i = 0; i < 16; i++) {
+  kickSeq[i] = false;
+}
+
+// dropdown
+function dropDownBtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+// dropdown
+
 function checkKey(e) {
    
   e = e || window.event;
