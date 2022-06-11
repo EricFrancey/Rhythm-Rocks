@@ -140,7 +140,7 @@ function createKickButtons() {
       }
     }
   }
-  startSequencer();
+  // startSequencer();
 }
  
 function init() {
