@@ -10,13 +10,29 @@ for (let i = 0; i < 16; i++) {
   kickSeq[i] = false;
 }
 
+function setKickSeq() {
+  for (let i = 0; i < 16; i++) {
+    kickSeq[i] = false;
+  }
+}
+function emptySound(){
+console.log("empty")
+}
+
 function startSequencer() {
 
   for (let i = 0; i < kickSeq.length; i ++) {
-    if (kickSeq[i] == false) {
+    console.log("speed " + drumSpeed)
+
+    if (kickSeq[i] === false) {
+      setTimeout(emptySound, drumSpeed);
+      drumSpeed = drumSpeed + 723;
+
+     } else if (kickSeq[i] === true) {
+      console.log(kickSeq);
       setTimeout(cloneKick, drumSpeed);
-      drumSpeed = drumSpeed + 1000;
-    }
+      drumSpeed = drumSpeed + 723;
+    } 
   }
 }
 
@@ -70,18 +86,18 @@ function playAuto() {
 // will be used to play both kick and snare
 }
 
-// function playKick() {
+function playAutoKick() {
 
-//   checkKey();
-//   let myint = setInterval(cloneKick, drumSpeed);
-//   var stopButton = document.getElementById('stop-button')
-//   stopButton.addEventListener('click', clearKick)
+  checkKey();
+  let myint = setInterval(cloneKick, drumSpeed);
+  var stopButton = document.getElementById('stop-button')
+  stopButton.addEventListener('click', clearKick)
 
-//   function clearKick(){
+  function clearKick(){
 
-//     clearInterval(myint);
-//   }
-// }
+    clearInterval(myint);
+  }
+}
 
 function playKick() {
 
@@ -131,11 +147,11 @@ function createKickButtons() {
         if (newBtn[i].classList.contains('button-off')) {
           newBtn[i].classList.remove('button-off')
           newBtn[i].classList.add('button-on')
-          kickSeq = true;
+          kickSeq[i] = true;
         } else if (newBtn[i].classList.contains('button-on')){
           newBtn[i].classList.add('button-off')
           newBtn[i].classList.remove('button-on')
-          kickSeq = false;
+          kickSeq[i] = false;
         }
       }
     }
@@ -146,6 +162,7 @@ function createKickButtons() {
 function init() {
 
   createKickButtons();
+  setKickSeq();
 }
 
 init();
