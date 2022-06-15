@@ -1,118 +1,255 @@
-var kick = document.getElementById('kick-drum');
-var snare = new Audio('./sounds/RF_snare.mp3');
+const kick = document.getElementById('kick-drum');
+const snare = new Audio('./sounds/RF_snare.mp3');
+const hihat = new Audio('./sounds/RF_HiHat.mp3');
+const openhat = new Audio('./sounds/RF_Openhat.mp3');
+
 let dSpeedText = 1;
 //83 bpm
-var drumSpeed = 723;
-document.onkeydown = checkKey;
+let drumSpeed = 723;
+// document.onkeydown = checkKey;
 
-let kickSeq = [];
-for (let i = 0; i < 16; i++) {
-  kickSeq[i] = false;
-}
+// let kickSeq = [];
+let barCount = 0;
+// let setBeatState = [false,false,false,false];
+let beatState = [
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false]
+];
 
-function setKickSeq() {
-  for (let i = 0; i < 16; i++) {
-    kickSeq[i] = false;
-  }
-}
+// function initBeatState (){
+//   for (let i = 0; i < 16; i ++) {
+//   beatState[i] = setBeatState;
+
+//   }
+//   console.log(beatState);
+// }
+
+
+// function countBeats() {
+//   document.getElementById('hit-button').innerHTML = "Beat: " + barCount + 1;
+// }
+
+// function setKickSeq() {
+
+//   for (let i = 0; i < 16; i++) {
+//     kickSeq[i] = false;
+//   }
+// }
+
+
+
 function emptySound(){
 console.log("empty")
 }
 
 function startSequencer() {
 
-  for (let i = 0; i < kickSeq.length; i ++) {
-    console.log("speed " + drumSpeed)
+  console.log("speed " + drumSpeed)
+  console.log(beatState)
+for (let i = 0; i < 16; i++) {
 
-    if (kickSeq[i] === false) {
-      setTimeout(emptySound, drumSpeed);
-      drumSpeed = drumSpeed + 723;
+// any 1 on
+// xooo
+if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
 
-     } else if (kickSeq[i] === true) {
-      console.log(kickSeq);
-      setTimeout(cloneKick, drumSpeed);
-      drumSpeed = drumSpeed + 723;
-    } 
-  }
-}
+    setTimeout(cloneKick, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// oxoo
+  } else if (!beatState[i][0] && beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
 
-// dropdown
-function dropDownBtn() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
+    setTimeout(cloneSnare, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// ooxo
+  } else if (!beatState[i][0] && !beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-// dropdown
+    setTimeout(cloneHihat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// ooox
+  } else if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
 
-function checkKey(e) {
-   
-  e = e || window.event;
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+
+// any 2 on
+// xxoo
+  } else if (beatState[i][0] && beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneSnare, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// oxxo
+  } else if (!beatState[i][0] && beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
+
+    setTimeout(cloneSnare, drumSpeed);
+    setTimeout(cloneHihat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// ooxx
+  } else if (!beatState[i][0] && !beatState[i][1] && beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneHihat, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// xoxo
+  } else if (beatState[i][0] && !beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneHihat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// oxox
+  } else if (!beatState[i][0] && beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneSnare, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// xoox
+  } else if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+
+// any 3 on
+// xxxo
+  } else if (beatState[i][0] && beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneSnare, drumSpeed);
+    setTimeout(cloneHihat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// oxxx
+  } else if (!beatState[i][0] && beatState[i][1] && beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneSnare, drumSpeed);
+    setTimeout(cloneHihat, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// xoxx
+  } else if (beatState[i][0] && !beatState[i][1] && beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneHihat, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// xxox
+  } else if (beatState[i][0] && beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneSnare, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// all on
+// xxxx
+  } else if (beatState[i][0] && beatState[i][1] && beatState[i][2] && beatState[i][3]) {
+
+    setTimeout(cloneKick, drumSpeed);
+    setTimeout(cloneSnare, drumSpeed);
+    setTimeout(cloneHihat, drumSpeed);
+    setTimeout(cloneOpenhat, drumSpeed);
+    drumSpeed = drumSpeed + 723;
+// all off
+// oooo
+  } else if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
+
+    setTimeout(emptySound, drumSpeed);
+    drumSpeed = drumSpeed + 723;
     
-  if (e.key == 'ArrowUp') {
-    document.getElementById('drumSpeed').innerHTML = dSpeedText + 1;
-    dSpeedText += 1;
-    drumSpeed -= 100;
-    } else if (e.key == 'ArrowDown') {
-    document.getElementById('drumSpeed').innerHTML = dSpeedText - 1;
-    dSpeedText -= 1;
-    drumSpeed += 100;
-  }
+  } 
 }
+}
+
+// dropdown
+// function dropDownBtn() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+
+// window.onclick = function(event) {
+//   if (!event.target.matches('.dropbtn')) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// }
+// dropdown
+
+// function checkKey(e) {
+//   e = e || window.event;
+    
+//   if (e.key == 'ArrowUp') {
+//     document.getElementById('drumSpeed').innerHTML = dSpeedText + 1;
+//     dSpeedText += 1;
+//     drumSpeed -= 100;
+//     } else if (e.key == 'ArrowDown') {
+//     document.getElementById('drumSpeed').innerHTML = dSpeedText - 1;
+//     dSpeedText -= 1;
+//     drumSpeed += 100;
+//   }
+// }
 
 function cloneKick() {
-
   let newKick = kick.cloneNode();
   newKick.play();
 }
 
 function cloneSnare() {
-
   let newSnare = snare.cloneNode();
   newSnare.play();
 }
 
-function playAuto() {
-// will be used to play both kick and snare
+function cloneHihat() {
+  let newHihat = hihat.cloneNode();
+  newHihat.play();
 }
 
-function playAutoKick() {
+function cloneOpenhat() {
+  let newOpenhat = openhat.cloneNode();
+  newOpenhat.play();
+}
 
+// function playAuto() {
+// // will be used to play both kick and snare
+// }
+
+function playAutoKick() {
   checkKey();
   let myint = setInterval(cloneKick, drumSpeed);
   var stopButton = document.getElementById('stop-button')
   stopButton.addEventListener('click', clearKick)
 
   function clearKick(){
-
     clearInterval(myint);
   }
 }
 
 function playKick() {
-
   let myint = setInterval(cloneKick, drumSpeed);
 }
 
 function playSnare() {
-
   checkKey();
   let myint = setInterval(cloneSnare, drumSpeed);
   var stopButton = document.getElementById('stop-button')
   stopButton.addEventListener('click', clearSnare)
 
   function clearSnare(){
-
     clearInterval(myint);
   }
 }
@@ -143,26 +280,27 @@ function createKickButtons() {
       newBtn[i].addEventListener('click', newColor)
 
       function newColor() {
-      
         if (newBtn[i].classList.contains('button-off')) {
           newBtn[i].classList.remove('button-off')
           newBtn[i].classList.add('button-on')
-          kickSeq[i] = true;
+          // kickSeq[i] = true;
+          beatState[i][j] = true;
         } else if (newBtn[i].classList.contains('button-on')){
           newBtn[i].classList.add('button-off')
           newBtn[i].classList.remove('button-on')
-          kickSeq[i] = false;
+          // kickSeq[i] = false;
+          beatState[i][j] = false;
         }
       }
     }
   }
-  // startSequencer();
 }
  
 function init() {
-
   createKickButtons();
-  setKickSeq();
+  console.log(beatState);
+  // setKickSeq();
+  // initBeatState();
 }
 
 init();
