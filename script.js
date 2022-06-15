@@ -4,8 +4,7 @@ const hihat = new Audio('./sounds/RF_HiHat.mp3');
 const openhat = new Audio('./sounds/RF_Openhat.mp3');
 
 let dSpeedText = 1;
-//83 bpm
-let drumSpeed = 723;
+let drumSpeed = 150;
 // document.onkeydown = checkKey;
 
 // let kickSeq = [];
@@ -67,22 +66,22 @@ for (let i = 0; i < 16; i++) {
 if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
 
     setTimeout(cloneKick, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // oxoo
   } else if (!beatState[i][0] && beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
 
     setTimeout(cloneSnare, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // ooxo
   } else if (!beatState[i][0] && !beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
 
     setTimeout(cloneHihat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // ooox
   } else if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 
 // any 2 on
 // xxoo
@@ -90,37 +89,37 @@ if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3])
 
     setTimeout(cloneKick, drumSpeed);
     setTimeout(cloneSnare, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // oxxo
   } else if (!beatState[i][0] && beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
 
     setTimeout(cloneSnare, drumSpeed);
     setTimeout(cloneHihat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // ooxx
   } else if (!beatState[i][0] && !beatState[i][1] && beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneHihat, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // xoxo
   } else if (beatState[i][0] && !beatState[i][1] && beatState[i][2] && !beatState[i][3]) {
 
     setTimeout(cloneKick, drumSpeed);
     setTimeout(cloneHihat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // oxox
   } else if (!beatState[i][0] && beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneSnare, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // xoox
   } else if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneKick, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 
 // any 3 on
 // xxxo
@@ -129,28 +128,28 @@ if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3])
     setTimeout(cloneKick, drumSpeed);
     setTimeout(cloneSnare, drumSpeed);
     setTimeout(cloneHihat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // oxxx
   } else if (!beatState[i][0] && beatState[i][1] && beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneSnare, drumSpeed);
     setTimeout(cloneHihat, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // xoxx
   } else if (beatState[i][0] && !beatState[i][1] && beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneKick, drumSpeed);
     setTimeout(cloneHihat, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // xxox
   } else if (beatState[i][0] && beatState[i][1] && !beatState[i][2] && beatState[i][3]) {
 
     setTimeout(cloneKick, drumSpeed);
     setTimeout(cloneSnare, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // all on
 // xxxx
   } else if (beatState[i][0] && beatState[i][1] && beatState[i][2] && beatState[i][3]) {
@@ -159,13 +158,13 @@ if (beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3])
     setTimeout(cloneSnare, drumSpeed);
     setTimeout(cloneHihat, drumSpeed);
     setTimeout(cloneOpenhat, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
 // all off
 // oooo
   } else if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
 
     setTimeout(emptySound, drumSpeed);
-    drumSpeed = drumSpeed + 723;
+    drumSpeed = drumSpeed + 150;
     
   } 
 }
