@@ -103,4 +103,9 @@ color: whitesmoke;
     margin-right: 0%;
     margin-top: 0%
   }
+
+  button {
+    border-radius: 0px;
+    font-size: 6px;
+  }
 }
