@@ -94,3 +94,13 @@ color: whitesmoke;
 color: whitesmoke;
 
 } */
+
+@media only screen and (max-width: 600px) {
+  body {
+    border-radius: 0px;
+    padding: 1px;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%
+  }
+}
