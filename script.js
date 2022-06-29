@@ -22,39 +22,104 @@ let beatState = [
   [false,false,false,false],
   [false,false,false,false],
   [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
+  [false,false,false,false],
   [false,false,false,false]
 ];
 
+let speedMod = 1;
+let speedSet = 500;
+let loopSlider = document.getElementById("loopRange");
+let loopText = document.getElementById("loops");
+var bpmSlider = document.getElementById("bpmRange");
+var bpmText = document.getElementById("bpm");
+
+bpmText.innerHTML = 93;
+loopText.innerHTML = 1;
+
+bpmSlider.oninput = function() {
+  if (bpmSlider.value == 1) {
+    bpmText.innerHTML = 93;
+  }
+  if (bpmSlider.value == 2) {
+    bpmText.innerHTML = 123;
+  }
+  if (bpmSlider.value == 3) {
+    bpmText.innerHTML = 153;
+  }
+  speedMod = this.value;
+}
+
+loopSlider.oninput = function() {
+  if (loopSlider.value == 1) {
+    loopText.innerHTML = this.value;
+  }
+  if (loopSlider.value == 2) {
+    loopText.innerHTML = this.value;
+  }
+  if (loopSlider.value == 3) {
+    loopText.innerHTML = this.value;
+  }
+}
+
+  //s
 // function countBeats() {
 //   document.getElementById('hit-button').innerHTML = "Beat: " + barCount + 1;
 // }
 
 function emptySound(){
-console.log("empty sound")
+  console.log("empty sound")
 }
 
 function startSequencer() {
   console.log("speed " + drumSpeed)
   console.log(beatState)
-for (let i = 0; i < 16; i++) {
 
-  if (beatState[i][0]) {
-    setTimeout(cloneKick, drumSpeed);
-    } 
-  if (beatState[i][1]) {
-    setTimeout(cloneSnare, drumSpeed);
-    } 
-  if (beatState[i][2]) {
-    setTimeout(cloneHihat, drumSpeed);
-    } 
-  if (beatState[i][3]) {
-    setTimeout(cloneOpenhat, drumSpeed);
+  if (speedMod == 1) {
+    speedSet = 645;
+
+  } else if (speedMod == 2) {
+  speedSet = 488;
+
+  } else if (speedMod == 3) {
+  speedSet = 392;
+  }
+
+  for (let k = 0; k < loopSlider.value; k++) {
+    for (let i = 0; i < 32; i++) {
+
+      if (beatState[i][0]) {
+        setTimeout(cloneKick, drumSpeed);
+      } 
+      if (beatState[i][1]) {
+        setTimeout(cloneSnare, drumSpeed);
+      } 
+      if (beatState[i][2]) {
+        setTimeout(cloneHihat, drumSpeed);
+      } 
+      if (beatState[i][3]) {
+        setTimeout(cloneOpenhat, drumSpeed);
+      }
+      if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
+        setTimeout(emptySound, drumSpeed);
+      } 
+
+    drumSpeed = drumSpeed + speedSet;
     }
-  if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
-    setTimeout(emptySound, drumSpeed);
-    } 
-
-  drumSpeed = drumSpeed + 150;
   }
 }
 
@@ -144,10 +209,11 @@ function createSequencerButtons() {
     }
   
     document.body.appendChild(snareCol);
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 32; i++) {
       newBtn[i] = document.createElement('button');
       newBtn[i].id = 'newBtn'
       newBtn[i].classList.add('button-off')
+      newBtn[i].classList.add('sequencer-button')
       newBtn[i].innerHTML = i+1;
       document.body.appendChild(newBtn[i]);
       newBtn[i].addEventListener('click', newColor)
