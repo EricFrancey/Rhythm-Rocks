@@ -6,43 +6,17 @@ const openhat = new Audio('./sounds/RF_Openhat.mp3');
 let dSpeedText = 1;
 let drumSpeed = 150;
 let barCount = 0;
-let beatState = [
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false],
-  [false,false,false,false]
-];
 
-let speedMod = 1;
-let speedSet = 500;
+let beatState = [];
+for (let p = 0; p < 32 ;p++) {
+  beatState[p] = [false,false,false,false];
+}
+
+let speedMod = 93;
+
+//93 bpm default
+let speedSet = 645;
+
 let loopSlider = document.getElementById("loopRange");
 let loopText = document.getElementById("loops");
 var bpmSlider = document.getElementById("bpmRange");
@@ -52,16 +26,13 @@ bpmText.innerHTML = 93;
 loopText.innerHTML = 1;
 
 bpmSlider.oninput = function() {
-  if (bpmSlider.value == 1) {
-    bpmText.innerHTML = 93;
+
+  for (let i = 60; i < 200; i++) {
+    if (bpmSlider.value == i) {
+      bpmText.innerHTML = i;
+      speedMod = this.value;
+    }
   }
-  if (bpmSlider.value == 2) {
-    bpmText.innerHTML = 123;
-  }
-  if (bpmSlider.value == 3) {
-    bpmText.innerHTML = 153;
-  }
-  speedMod = this.value;
 }
 
 loopSlider.oninput = function() {
@@ -89,14 +60,10 @@ function startSequencer() {
   console.log("speed " + drumSpeed)
   console.log(beatState)
 
-  if (speedMod == 1) {
-    speedSet = 645;
-
-  } else if (speedMod == 2) {
-  speedSet = 488;
-
-  } else if (speedMod == 3) {
-  speedSet = 392;
+  for (let z = 60; z < 200; z++) {
+    if (speedMod == z) {
+      speedSet = 60000/z;
+    }
   }
 
   for (let k = 0; k < loopSlider.value; k++) {
@@ -118,7 +85,7 @@ function startSequencer() {
         setTimeout(emptySound, drumSpeed);
       } 
 
-    drumSpeed = drumSpeed + speedSet;
+      drumSpeed = drumSpeed + speedSet;
     }
   }
 }
