@@ -74,6 +74,10 @@ background-color: whitesmoke;
 clip-path: polygon(49% 9%, 81% 41%, 76% 75%, 27% 83%, 10% 38%);
 background-color: darkred; 
 }
+.button-playing{
+  clip-path: polygon(49% 9%, 81% 41%, 76% 75%, 27% 83%, 10% 38%);
+  background-color: green; 
+}
 
 body {
 background-color: dimgray;
