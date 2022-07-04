@@ -25,27 +25,17 @@
         <p>Loops: <span id="loops"></span></p>
       </div>
       <audio id="kick-drum" src = "sounds/RF_kick.mp3" preload='auto'></audio>
-
-    <!-- <button type="button" class="btn btn-success" onclick="playAutoKick()" >Start kick</button> -->
-    <!-- <button type="button" class="btn btn-primary" onclick="playSnare()" >Snare</button> -->
-    <!-- <button id="stop-button" type="button" class="btn btn-secondary">Stop auto</button> -->
-    <!-- <h2> <br> Speed:</h2>
-    <h2 id="drumSpeed">1</h2> -->
-    <!-- <div class="dropdown">
-        <button onclick="dropDownBtn()" class="dropbtn"><br>Set BPM</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#home">80</a>
-          <a href="#about">90</a>
-          <a href="#contact">100</a>
-          data attr for these
-        </div>
-      </div> -->
-    
+ 
     <br>
+    <div class="dropdown">
+      <button onclick="dropDownBtn()" class="dropbtn"><br>Preset</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a id="preset1">Four-on-the-floor</a>
+        <a id="preset2" href="#about">Preset2</a>
+        <a href="#contact">100</a>
+      </div>
+    </div>
     <button type="button" class="btn-lg btn-success" onclick="startSequencer()" >Start Sequencer</button>
-    <button type="button" class="btn-lg btn-success" onclick="preset1()" >Four-on-the-floor</button>
-    <button type="button" class="btn-lg btn-success" onclick="preset2()" >Preset 2</button>
-    <!-- <div id="hit-button">Beat: 0</div> -->
    
     <script src="script.js"></script>
     

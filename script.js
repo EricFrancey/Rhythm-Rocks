@@ -22,8 +22,20 @@ let loopText = document.getElementById("loops");
 var bpmSlider = document.getElementById("bpmRange");
 var bpmText = document.getElementById("bpm");
 
+var presetFourOnTheFloor = document.getElementById("preset1");
+var preset2 = document.getElementById("preset2");
+
 bpmText.innerHTML = 93;
 loopText.innerHTML = 1;
+
+
+presetFourOnTheFloor.onclick = function() {
+  preset1();
+}
+
+preset2.onclick = function() {
+  console.log("here")
+  }
 
 bpmSlider.oninput = function() {
 
@@ -46,14 +58,6 @@ loopSlider.oninput = function() {
     loopText.innerHTML = this.value;
   }
 }
-
-  //s
-// function countBeats() {
-//   document.getElementById('hit-button').innerHTML = "Beat: " + barCount + 1;
-// }
-
-
-
 
 function resetPreset() {
   for (let p = 0; p < 32 ;p++) {
@@ -156,8 +160,6 @@ function startSequencer() {
     }
   }
 
-
-
   for (let k = 0; k < loopSlider.value; k++) {
 
 
@@ -209,7 +211,7 @@ function startSequencer() {
 
       if (beatState[i][0]) {
         setTimeout(cloneKick, drumSpeed);
-        setTimeout(kickColourOn, drumSpeed - 150);
+        setTimeout(kickColourOn, drumSpeed - 50);
         setTimeout(kickColourOff, drumSpeed);
       } 
       if (beatState[i][1]) {
@@ -217,19 +219,19 @@ function startSequencer() {
 
         //for progress bar style
         // newBtn[i+32].classList.add('button-playing')
-        setTimeout(snareColourOn, drumSpeed - 150);
+        setTimeout(snareColourOn, drumSpeed - 50);
         setTimeout(snareColourOff, drumSpeed);
       } 
       if (beatState[i][2]) {
         setTimeout(cloneHihat, drumSpeed);
         // newBtn[i+64].classList.add('button-playing')
-        setTimeout(hihatColourOn, drumSpeed - 150);
+        setTimeout(hihatColourOn, drumSpeed - 50);
         setTimeout(hihatColourOff, drumSpeed);
       } 
       if (beatState[i][3]) {
         setTimeout(cloneOpenhat, drumSpeed);
         // newBtn[i+96].classList.add('button-playing')
-        setTimeout(openhatColourOn, drumSpeed - 150);
+        setTimeout(openhatColourOn, drumSpeed - 50);
         setTimeout(openhatColourOff, drumSpeed);
       }
       if (!beatState[i][0] && !beatState[i][1] && !beatState[i][2] && !beatState[i][3]) {
@@ -238,12 +240,15 @@ function startSequencer() {
 
       drumSpeed = drumSpeed + speedSet;
     }
-
   } 
-
 }
 
-// dropdown
+
+
+
+
+
+
 // function dropDownBtn() {
 //   document.getElementById("myDropdown").classList.toggle("show");
 // }
@@ -260,6 +265,29 @@ function startSequencer() {
 //     }
 //   }
 // }
+
+
+
+
+
+
+// dropdown
+function dropDownBtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 // dropdown
 
 function cloneKick() {
@@ -280,36 +308,6 @@ function cloneHihat() {
 function cloneOpenhat() {
   let newOpenhat = openhat.cloneNode();
   newOpenhat.play();
-}
-
-// function playAuto() {
-// // will be used to play both kick and snare
-// }
-
-function playAutoKick() {
-  checkKey();
-  let myint = setInterval(cloneKick, drumSpeed);
-  var stopButton = document.getElementById('stop-button')
-  stopButton.addEventListener('click', clearKick)
-
-function clearKick(){
-  clearInterval(myint);
-  }
-}
-
-function playKick() {
-  let myint = setInterval(cloneKick, drumSpeed);
-}
-
-function playSnare() {
-  checkKey();
-  let myint = setInterval(cloneSnare, drumSpeed);
-  var stopButton = document.getElementById('stop-button')
-  stopButton.addEventListener('click', clearSnare)
-
-  function clearSnare(){
-    clearInterval(myint);
-  }
 }
 
 function createSequencerButtons() {

@@ -27,7 +27,7 @@ color: red;
 .dropdown {
     position: relative;
     /* display: inline-block; */
-    display: block;
+    display: inline;
   }
   
 .dropdown-content {
@@ -44,7 +44,7 @@ color: red;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
+  display: block
 }
   
 .dropdown a:hover {
@@ -72,11 +72,11 @@ background-color: whitesmoke;
 
 .button-on {
 clip-path: polygon(49% 9%, 81% 41%, 76% 75%, 27% 83%, 10% 38%);
-background-color: darkred; 
+background-color: steelblue; 
 }
 .button-playing{
   clip-path: polygon(49% 9%, 81% 41%, 76% 75%, 27% 83%, 10% 38%);
-  background-color: green; 
+  background-color: midnightblue; 
 }
 
 body {
