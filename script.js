@@ -23,19 +23,15 @@ var bpmSlider = document.getElementById("bpmRange");
 var bpmText = document.getElementById("bpm");
 
 var presetFourOnTheFloor = document.getElementById("preset1");
-var preset2 = document.getElementById("preset2");
+var presetTwoBeat = document.getElementById("preset2");
+var presetBreakbeat = document.getElementById("preset3")
 
 bpmText.innerHTML = 93;
 loopText.innerHTML = 1;
 
-
-presetFourOnTheFloor.onclick = function() {
-  preset1();
-}
-
-preset2.onclick = function() {
-  console.log("here")
-  }
+presetFourOnTheFloor.onclick = preset1;
+presetTwoBeat.onclick = preset2;
+presetBreakbeat.onclick = preset3;
 
 bpmSlider.oninput = function() {
 
@@ -141,8 +137,39 @@ function preset1() {
 
 function preset2() {
   resetPreset();
-  beatState[0][0] = true;
-  newBtn[40].classList.add('button-on')
+  for (let o = 0; o < 32; o ++) {
+    beatState[o][2] = true;
+  }
+  for (let k = 64; k < 96; k ++) {
+    newBtn[k].classList.add('button-on')
+  }
+
+ beatState[0][0] = true;
+ beatState[8][0] = true;
+ beatState[16][0] = true;
+ beatState[24][0] = true;
+ beatState[4][1] = true;
+ beatState[12][1] = true;
+ beatState[20][1] = true;
+ beatState[28][1] = true;
+ newBtn[0].classList.add('button-on')
+ newBtn[8].classList.add('button-on')
+ newBtn[16].classList.add('button-on')
+ newBtn[24].classList.add('button-on')
+ newBtn[36].classList.add('button-on')
+ newBtn[44].classList.add('button-on')
+ newBtn[52].classList.add('button-on')
+ newBtn[60].classList.add('button-on')
+}
+
+function preset3(){
+  resetPreset();
+  for (let o = 0; o < 32; o ++) {
+    beatState[o][2] = true;
+  }
+  for (let k = 64; k < 96; k ++) {
+    newBtn[k].classList.add('button-on')
+  }
 }
 
 function emptySound(){
@@ -310,7 +337,7 @@ function cloneOpenhat() {
   newOpenhat.play();
 }
 
-function createSequencerButtons() {
+function init() {
   for (let j = 0; j < 4; j++) {
 
     let newBtn = [];
@@ -351,4 +378,4 @@ function createSequencerButtons() {
   }
 }
 
-createSequencerButtons();
+init();
