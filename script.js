@@ -378,4 +378,13 @@ function init() {
   }
 }
 
+function savePreset(){
+  localStorage.setItem('state', JSON.stringify(beatState));
+}
+
+function loadPreset(){
+  beatState = JSON.parse(localStorage.getItem("state"));
+  console.log(beatState);
+}
+
 init();

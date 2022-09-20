@@ -28,7 +28,7 @@
  
     <br>
     <div class="dropdown">
-      <button onclick="dropDownBtn()" class="dropbtn"><br>Preset</button>
+      <button onclick="dropDownBtn()" class="dropbtn"><br>Premade Presets</button>
       <div id="myDropdown" class="dropdown-content">
         <a id="preset1">Four-on-the-floor</a>
         <a id="preset2">16th note groove</a>
@@ -36,6 +36,8 @@
       </div>
     </div>
     <button type="button" class="btn-lg btn-success" onclick="startSequencer()" >Start Sequencer</button>
+    <button type="button" onclick="savePreset()">Save custom preset</button>
+    <button type="button" onclick="loadPreset()">Load custom preset</button>
    
     <script src="script.js"></script>
     
