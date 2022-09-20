@@ -188,10 +188,7 @@ function startSequencer() {
   }
 
   for (let k = 0; k < loopSlider.value; k++) {
-
-
     for (let i = 0; i < 32; i++) {
-
 
       function kickColourOn() {
         newBtn[i].classList.add('button-playing')
@@ -209,16 +206,9 @@ function startSequencer() {
         newBtn[i+96].classList.add('button-playing')
       }
 
-
       function kickColourOff(){
         newBtn[i].classList.remove('button-playing')
         newBtn[i].classList.add('button-on')
-        // 3 on
-        // for (let g = 0; g < 128 ;g++) {
-        //   if (newBtn[g].classList.contains('button-on')) {
-        //     newBtn[g].classList.add('button-playing')
-        //   }
-        // }
       }
 
       function snareColourOff(){
@@ -269,34 +259,6 @@ function startSequencer() {
     }
   } 
 }
-
-
-
-
-
-
-
-// function dropDownBtn() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
-
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
-
-
-
-
-
 
 // dropdown
 function dropDownBtn() {
@@ -385,6 +347,26 @@ function savePreset(){
 function loadPreset(){
   beatState = JSON.parse(localStorage.getItem("state"));
   console.log(beatState);
+
+  for (let k = 0; k < 4; k++) {
+    for (let i = 0; i < 32; i++) {
+
+      if (beatState[i][k] == true) {
+        if (k==0) {
+        newBtn[i].classList.add('button-on')
+        }
+        if (k==1) {
+          newBtn[i+32].classList.add('button-on')
+        }
+        if (k==2) {
+          newBtn[i+64].classList.add('button-on')
+        }
+        if (k==3) {
+          newBtn[i+96].classList.add('button-on')
+        }
+      }
+    }
+  }
 }
 
 init();
