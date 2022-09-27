@@ -4,7 +4,7 @@ const hihat = new Audio('./sounds/RF_HiHat.mp3');
 const openhat = new Audio('./sounds/RF_Openhat.mp3');
 
 let dSpeedText = 1;
-let drumSpeed = 1000;
+let drumSpeed = 0;
 let barCount = 0;
 
 let beatState = [];
@@ -177,6 +177,7 @@ function emptySound(){
 }
 
 function startSequencer() {
+  drumSpeed = 0;
   console.log("speed " + drumSpeed);
   console.log(beatState);
   console.log(newBtn);
@@ -188,6 +189,7 @@ function startSequencer() {
   }
 
   for (let k = 0; k < loopSlider.value; k++) {
+    
     for (let i = 0; i < 32; i++) {
 
       function kickColourOn() {
