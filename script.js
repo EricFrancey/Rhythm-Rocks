@@ -207,22 +207,23 @@ function startSequencer() {
       }
 
       function kickColourOff(){
-        newBtn[i].classList.remove('button-playing')
-        newBtn[i].classList.add('button-on')
+        newBtn[i].classList.remove('button-playing');
+        newBtn[i].classList.add('button-on');
+        // newBtn[i].classList.add('button-after-play')
       }
 
       function snareColourOff(){
-        newBtn[i+32].classList.remove('button-playing')
+        newBtn[i+32].classList.remove('button-playing');
         newBtn[i+32].classList.add('button-on')
       }
 
       function hihatColourOff(){
-        newBtn[i+64].classList.remove('button-playing')
+        newBtn[i+64].classList.remove('button-playing');
         newBtn[i+64].classList.add('button-on')
       }
 
       function openhatColourOff(){
-        newBtn[i+96].classList.remove('button-playing')
+        newBtn[i+96].classList.remove('button-playing');
         newBtn[i+96].classList.add('button-on')
       }
 
@@ -353,7 +354,7 @@ function loadPreset(){
 
       if (beatState[i][k] == true) {
         if (k==0) {
-        newBtn[i].classList.add('button-on')
+          newBtn[i].classList.add('button-on')
         }
         if (k==1) {
           newBtn[i+32].classList.add('button-on')

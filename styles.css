@@ -72,12 +72,16 @@ background-color: whitesmoke;
 }
 
 .button-on {
-clip-path: polygon(49% 9%, 81% 41%, 76% 75%, 27% 83%, 10% 38%);
-background-color: steelblue; 
+  background-color: rgb(25, 76, 117); 
+  transition: background-color 1s;
 }
-.button-playing{
+.button-playing {
   clip-path: polygon(49% 9%, 81% 41%, 76% 75%, 27% 83%, 10% 38%);
-  background-color: midnightblue; 
+  background-color: whitesmoke; 
+}
+
+.button-after-play {
+background-color:lightsteelblue;
 }
 
 body {
