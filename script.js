@@ -348,9 +348,10 @@ function savePreset(){
 }
 
 function loadPreset(){
+  resetPreset();
   beatState = JSON.parse(localStorage.getItem("state"));
   console.log(beatState);
-
+ 
   for (let k = 0; k < 4; k++) {
     for (let i = 0; i < 32; i++) {
 
