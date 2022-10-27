@@ -13,9 +13,7 @@ for (let p = 0; p < 32 ;p++) {
 }
 
 let speedMod = 93;
-
-//93 bpm default
-let speedSet = 645;
+let speedSet = 0;
 
 let loopSlider = document.getElementById("loopRange");
 let loopText = document.getElementById("loops");
@@ -211,7 +209,6 @@ function startSequencer() {
       function kickColourOff(){
         newBtn[i].classList.remove('button-playing');
         newBtn[i].classList.add('button-on');
-        // newBtn[i].classList.add('button-after-play')
       }
 
       function snareColourOff(){
@@ -236,21 +233,16 @@ function startSequencer() {
       } 
       if (beatState[i][1]) {
         setTimeout(cloneSnare, drumSpeed);
-
-        //for progress bar style
-        // newBtn[i+32].classList.add('button-playing')
         setTimeout(snareColourOn, drumSpeed - 50);
         setTimeout(snareColourOff, drumSpeed);
       } 
       if (beatState[i][2]) {
         setTimeout(cloneHihat, drumSpeed);
-        // newBtn[i+64].classList.add('button-playing')
         setTimeout(hihatColourOn, drumSpeed - 50);
         setTimeout(hihatColourOff, drumSpeed);
       } 
       if (beatState[i][3]) {
         setTimeout(cloneOpenhat, drumSpeed);
-        // newBtn[i+96].classList.add('button-playing')
         setTimeout(openhatColourOn, drumSpeed - 50);
         setTimeout(openhatColourOff, drumSpeed);
       }
@@ -303,20 +295,13 @@ function cloneOpenhat() {
 }
 
 function init() {
+  let arrays=['<div class="instrument">Kick</div>', '<div class="instrument">Snare</div>', '<div class="instrument">Hihat</div>', '<div class="instrument">Openhat</div>']
   for (let j = 0; j < 4; j++) {
 
     let newBtn = [];
     let snareCol = document.createElement('div');
     snareCol.classList.add('col')
-    if (j == 0) {
-      snareCol.innerHTML = '<h3><br>Kick</h3>'
-    } else if (j ==1) {
-      snareCol.innerHTML = '<h3><br>Snare</h3>'
-    } else if (j ==2) {
-      snareCol.innerHTML = '<h3><br>Hihat</h3>'
-    } else if (j ==3) {
-      snareCol.innerHTML = '<h3><br>Openhat</h3>'
-    }
+    snareCol.innerHTML = arrays[j];
   
     document.body.appendChild(snareCol);
     for (let i = 0; i < 32; i++) {
